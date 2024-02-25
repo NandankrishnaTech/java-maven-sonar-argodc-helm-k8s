@@ -23,7 +23,7 @@ pipeline {
                 script {
                     env.SONAR_URL = 'http://52.66.168.202:9000'
                     withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-                        sh 'cd spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${env.SONAR_URL}'
+                        sh "cd spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${env.SONAR_URL}"
                     }
                 }
             }
